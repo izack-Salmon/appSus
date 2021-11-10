@@ -1,8 +1,14 @@
 import { emailService } from '../services/email-services.js';
+import emailSideRuler from '../cmps/email-side-ruler.cmp.js';
+
 export default {
-  template: `
-        <footer class="app-footer">
-            <p>&copy; Coffeerights 2021</p>
-        </footer>
+
+    template: `
+    <email-side-ruler />
+  
     `,
+    components: {
+        emailSideRuler
+
+    },
 };

@@ -1,13 +1,12 @@
 import { emailService } from '../services/email-services.js';
 import emailList from '../cmps/email-list.cmp.js';
-import emailCompose from '../cmps/email-compose.cmp.js';
+import emailSideRuler from '../cmps/email-side-ruler.cmp.js';
+
 
 export default {
     template: `
         <main class="app-content">
-        <section class="side-ruler">
-            <email-compose />
-        </section>
+        <email-sideRuler />
         <email-list :emails="emails" />
         </main>
     `,
@@ -33,7 +32,6 @@ export default {
     },
     components: {
         emailList,
-        emailCompose,
-
+        emailSideRuler,
     }
 };

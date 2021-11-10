@@ -1,7 +1,10 @@
 export default {
-  template: `
-        <footer class="app-footer">
-            <p>&copy; Coffeerights 2021</p>
-        </footer>
+    template: `
+    <div class="box">
+    <div class="email-compose">
+        <div class="icon">+</div>
+        <div class="name-holder">Compose</div>
+    </div>
+    </div>
     `,
 };

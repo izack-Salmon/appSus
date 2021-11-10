@@ -1,35 +1,49 @@
+/*  note app imports */
+
 @import 'apps/keep/cmp/note-preview.cmp.css';
 @import 'apps/keep/cmp/note-txt.cmp.css';
 @import 'apps/keep/cmp/note.img.cmp.css';
 @import 'apps/keep/cmp/note-todos.cmp.css';
 
+/* email app imports*/
+
+@import 'apps/email/pages/email-app.cmp.css';
+@import 'apps/email/cmp/email-side-ruler.css';
+@import 'apps/email/cmp/email-compose.css';
+
+/* main */
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 body {
-  margin: 0;
+    margin: 0;
 }
+
 
 /* header */
 
 .app-header {
-  padding: 10px;
-  height: 5vh;
-  background-color: #f7d08a;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    padding: 10px;
+    height: 5vh;
+    background-color: #f7d08a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+
 /* footer */
+
 .app-footer {
-  text-align: center;
-  padding: 10px;
-  height: 5vh;
-  background-color: #f7d08a;
+    text-align: center;
+    padding: 10px;
+    height: 5vh;
+    background-color: #f7d08a;
 }
 
 .app-main {
-  height: 90vh;
-  background-color: #f0f0f0;
+    height: 90vh;
+    background-color: #f0f0f0;
 }
