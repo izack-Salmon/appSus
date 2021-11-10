@@ -1,9 +1,10 @@
+import { router } from './services/routes.js';
 const options = {
   el: '#app',
-  // router,
+  router,
   template: `
         <section>
-
+          <div>hi</Div>
         </section>
     `,
   components: {},
