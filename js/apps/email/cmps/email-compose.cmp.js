@@ -1,7 +1,7 @@
 export default {
-    template: `
-        <div class="compose-box" >
-            <h3>+ COMPOSE</h3>
-        </div>
+  template: `
+        <footer class="app-footer">
+            <p>&copy; Coffeerights 2021</p>
+        </footer>
     `,
 };
