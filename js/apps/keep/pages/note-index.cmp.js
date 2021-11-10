@@ -1,8 +1,8 @@
-import { emailService } from '../services/email-services.js';
+import { emailService } from '../services/note-Service.js';
 export default {
   template: `
-        <footer class="app-footer">
-            <p>&copy; Coffeerights 2021</p>
-        </footer>
+  <section>
+
+  </section>
     `,
 };
