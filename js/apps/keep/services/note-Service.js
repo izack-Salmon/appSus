@@ -1,8 +1,14 @@
 import { storageService } from '../../../services/async-storage-service.js';
-export const noteService = {};
+import { utilService } from '../../../services/util-service.js';
+
+export const noteService = {
+  query,
+};
+
+const NOTE_KEY = 'notes';
 const notes = [
   {
-    id: 'n101',
+    id: 'n101q',
     type: 'note-txt',
     isPinned: true,
     info: {
@@ -10,10 +16,10 @@ const notes = [
     },
   },
   {
-    id: 'n102',
+    id: 'n102h',
     type: 'note-img',
     info: {
-      url: 'http://some-img/me',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
       title: 'Bobi and Me',
     },
     style: {
@@ -21,7 +27,7 @@ const notes = [
     },
   },
   {
-    id: 'n103',
+    id: 'n103j',
     type: 'note-todos',
     info: {
       label: 'Get my stuff together',
@@ -32,3 +38,8 @@ const notes = [
     },
   },
 ];
+
+function query() {
+  utilService.saveToStorage(NOTE_KEY, notes);
+  return storageService.query(NOTE_KEY);
+}

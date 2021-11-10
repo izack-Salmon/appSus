@@ -1,0 +1,10 @@
+.img-container {
+  display: flex;
+  flex-direction: column;
+}
+.img {
+  height: 80%;
+}
+.title {
+  text-align: center;
+}

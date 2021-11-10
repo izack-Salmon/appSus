@@ -1,0 +1,22 @@
+/* note preview */
+.note-preview-container {
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid black;
+  width: 250px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.note-container {
+  display: flex;
+}
+.note-preview {
+  height: 100%;
+}
+.note-preview-txt {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

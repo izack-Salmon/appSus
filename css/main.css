@@ -1,3 +1,8 @@
+@import 'apps/keep/cmp/note-preview.cmp.css';
+@import 'apps/keep/cmp/note-txt.cmp.css';
+@import 'apps/keep/cmp/note.img.cmp.css';
+@import 'apps/keep/cmp/note-todos.cmp.css';
+
 * {
   box-sizing: border-box;
 }
@@ -17,7 +22,6 @@ body {
 }
 
 /* footer */
-
 .app-footer {
   text-align: center;
   padding: 10px;
