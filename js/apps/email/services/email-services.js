@@ -1,7 +1,10 @@
 import { storageService } from '../../../services/async-storage-service.js';
+import { utilService } from '../../../services/util-service.js';
 const EMAIL_KEY = 'emails';
-export const emailService = {};
-
+export const emailService = {
+    query,
+};
+var gEmails = []
 
 const loggedinUser = {
     email: 'user@appsus.com',
@@ -16,6 +19,14 @@ const email = {
     sentAt: 1551133930594,
     to: 'momo@momo.com',
 };
+const email2 = {
+    id: 'e103',
+    subject: 'Miss you!',
+    body: 'Would love to catch up sometimes',
+    isRead: false,
+    sentAt: 1551133930594,
+    to: 'momo@momo.com',
+};
 const criteria = {
     status: 'inbox/sent/trash/draft',
     txt: 'puki', // no need to support complex text search
@@ -24,11 +35,13 @@ const criteria = {
     lables: ['important', 'romantic'], // has any of the labels
 };
 
+gEmails.push(email)
+gEmails.push(email2)
 
-_createBooks()
+_createEmails()
 
 function query() {
-    return email;
+    return storageService.query(EMAIL_KEY);
 }
 
 
@@ -44,24 +57,16 @@ function save(email) {
 }
 
 // function addReview(review, bookId) {
-//     return getById(bookId).then(book => {
-//         console.log('from addReview', book)
-//         if (!book.reviews) book.reviews = []
-//         book.reviews.push(review)
-//         return storageService.put(BOOKS_KEY, book) //.then(updatedBook => updatedBook)
-//     })
-// }
-
 
 function getById(emailId) {
     return storageService.get(EMAIL_KEY, emailId);
 }
 
 
-function _createBooks() {
-    let books = utilService.loadFromStorage(EMAIL_KEY);
-    if (!books || !books.length) {
+function _createEmails() {
+    let emails = utilService.loadFromStorage(EMAIL_KEY);
+    if (!emails || !emails.length) {
         utilService.saveToStorage(EMAIL_KEY, gEmails);
     }
-    return books;
+    return emails;
 }
