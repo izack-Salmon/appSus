@@ -5,7 +5,7 @@ import noteVideo from './note-video.cmp.js';
 export default {
   props: ['note'],
   template: `
-       <div class='note-preview'>
+       <div class='note-preview-txt'>
             <div v-if='txtType'>
             <note-txt :note='note'/>
             </div>
@@ -16,7 +16,7 @@ export default {
             <note-todos :note='note'/>
             </div>
             <div v-else-if='videoType'>
-            <note-txt :note='note'/>
+            <note-video :note='note'/>
             </div>
        </div>
     `,

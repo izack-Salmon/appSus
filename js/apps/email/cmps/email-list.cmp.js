@@ -1,7 +1,7 @@
-import emailPreview from "./email-preview.cmp.js";
+import emailPreview from './email-preview.cmp.js';
 export default {
-    props: ['emails'],
-    template: `
+  props: ['emails'],
+  template: `
     <section class="list-holder">
         <table>
             <tbody>
@@ -12,10 +12,8 @@ export default {
         </table>
     </section>
     `,
-    methods: {
-
-    },
-    components: {
-        emailPreview,
-    },
+  methods: {},
+  components: {
+    emailPreview,
+  },
 };
