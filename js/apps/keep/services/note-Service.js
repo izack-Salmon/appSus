@@ -37,6 +37,14 @@ const notes = [
       ],
     },
   },
+  {
+    id: 'n103j',
+    type: 'note-video',
+    info: {
+      label: 'Get my stuff together',
+      url: 'https://www.youtube.com/embed/tgbNymZ7vqY',
+    },
+  },
 ];
 
 function query() {

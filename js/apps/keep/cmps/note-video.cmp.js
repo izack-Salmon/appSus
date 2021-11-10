@@ -1,6 +1,9 @@
 export default {
   props: ['note'],
   template: `
-                <div>{{note.info}}</div>
+            <iframe width="100%" height="100%" :src="note.info.url"></iframe>
             `,
+  created() {
+    //
+  },
 };

@@ -1,11 +1,13 @@
 import { noteService } from '../services/note-Service.js';
 import noteList from '../cmps/note-list.cmp.js';
 import noteFillter from '../cmps/note-filter.cmp.js';
+import addNote from '../cmps/add-note.cmp.js';
 export default {
   template: `
         <section class="app-main">
-        <note-fillter></note-Fillter>
+        <add-note />
             <note-list :notes='notesToShow' />
+            <note-fillter></note-Fillter>
         </section>
     `,
   data() {
@@ -32,5 +34,6 @@ export default {
   components: {
     noteList,
     noteFillter,
+    addNote,
   },
 };

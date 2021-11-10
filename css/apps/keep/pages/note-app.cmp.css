@@ -1,0 +1,16 @@
+.add-note {
+  font-size: 30px;
+  width: 50%;
+  /* height: 40px; */
+  /* margin: 10px; */
+  margin-bottom: 80px;
+}
+.input-icon span {
+  padding: 20px;
+  font-size: 45px;
+  opacity: 0.5;
+}
+.input-icon span:hover {
+  cursor: pointer;
+  opacity: 1;
+}
