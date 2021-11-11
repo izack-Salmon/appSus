@@ -1,6 +1,5 @@
 .scroll-div {
     width: auto;
-    height: 105%;
     overflow: hidden;
     overflow-y: scroll;
 }

@@ -1,7 +1,28 @@
 .email-side-ruler {
     width: 250px;
     border-right: 1px solid rgb(212, 212, 212);
-    height: 80vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.row-ruler {
+    cursor: pointer;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.row-ruler:hover {
+    background-color: rgba(212, 212, 212, 0.6);
+}
+
+.row-ruler .span-icon {
+    margin-left: 30px;
+}
+
+.row-ruler .span-title {
+    font-size: 20px;
+    margin-left: 15px;
 }

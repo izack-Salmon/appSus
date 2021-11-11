@@ -1,0 +1,9 @@
+.email-top-ruler {
+    height: 50px;
+}
+
+.email-top-ruler input {
+    font-size: 16px;
+    height: 35px;
+    width: 300px;
+}
