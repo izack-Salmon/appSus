@@ -5,7 +5,7 @@ import addNote from '../cmps/add-note.cmp.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 export default {
   template: `
-        <section class="app-main">
+        <section class="app-main flex-column-center">
         <add-note />
             <note-list :notes='notesToShow' />
             <note-fillter></note-Fillter>

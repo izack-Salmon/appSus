@@ -1,6 +1,8 @@
 import { emailService } from '../services/email-services.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailSideRuler from '../cmps/email-side-ruler.cmp.js';
+
 
 
 export default {
@@ -17,12 +19,24 @@ export default {
     },
     created() {
         this.loadEmails()
+        eventBus.$on('new email created', (newEmail) => {
+            return emailService.add(newEmail)
+                .then(() => {
+                    this.loadEmails();
+                })
+        })
+        eventBus.$on('mail to delete', (id) => {
+            return emailService.remove(id)
+                .then(() => {
+                    this.loadEmails();
+                })
+        })
+
     },
     methods: {
         loadEmails() {
             emailService.query()
                 .then(emails => {
-
                     this.emails = emails
                 })
         },

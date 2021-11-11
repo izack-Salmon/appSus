@@ -1,7 +1,7 @@
 import { noteService } from '../services/note-Service.js';
 export default {
   template: `
-  <section v-if='note' class='app-main'>
+  <section v-if='note' class='app-main flex-column-center'>
     <h2>details page / edit note</h2>
     <h3>note type : {{note.type}}</h3>
     <h3 class='center'>isPinned</h3><input type="checkbox" id="checkbox" v-model="note.isPinned">

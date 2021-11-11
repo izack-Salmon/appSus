@@ -1,0 +1,28 @@
+.email-container {
+    color: rgb(46, 46, 46);
+    margin: 50px;
+}
+
+.mail-header {
+    font-size: 80px;
+    margin-bottom: 40px
+}
+
+.to-name {
+    font-size: 25px;
+    margin-bottom: 40px
+}
+
+.mail-body {
+    font-size: 20px;
+}
+
+.action-ruler {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.detail-icon {
+    cursor: pointer;
+}
