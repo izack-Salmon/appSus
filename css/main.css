@@ -9,6 +9,9 @@
 /* email app imports*/
 
 @import 'apps/email/pages/email-app.cmp.css';
+@import 'apps/email/pages/email-details.cmp.css';
+@import 'apps/email/cmp/email-list.cmp.css';
+@import 'apps/email/cmp/email-preview.cmp.css';
 @import 'apps/email/cmp/email-side-ruler.css';
 @import 'apps/email/cmp/email-compose.css';
 
@@ -38,13 +41,27 @@ body {
 /* footer */
 
 .app-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
     padding: 10px;
-    height: 5vh;
     background-color: #f7d08a;
 }
 
 .app-main {
     height: 90vh;
     background-color: #f0f0f0;
+}
+
+
+/* Helpers */
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }

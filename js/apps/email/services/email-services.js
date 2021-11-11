@@ -3,6 +3,9 @@ import { utilService } from '../../../services/util-service.js';
 const EMAIL_KEY = 'emails';
 export const emailService = {
     query,
+    add,
+    remove,
+    getById,
 };
 var gEmails = []
 
@@ -12,16 +15,16 @@ const loggedinUser = {
 };
 
 const email = {
-    id: 'e101',
-    subject: 'Miss you!',
+    id: 'd121',
+    subject: 'Shalom!',
     body: 'Would love to catch up sometimes',
     isRead: false,
     sentAt: 1551133930594,
     to: 'momo@momo.com',
 };
 const email2 = {
-    id: 'e103',
-    subject: 'Miss you!',
+    id: 'g104',
+    subject: 'Coding Academy',
     body: 'Would love to catch up sometimes',
     isRead: false,
     sentAt: 1551133930594,
@@ -35,8 +38,6 @@ const criteria = {
     lables: ['important', 'romantic'], // has any of the labels
 };
 
-gEmails.push(email)
-gEmails.push(email2)
 
 _createEmails()
 
@@ -45,7 +46,9 @@ function query() {
 }
 
 
-
+function add(email) {
+    return storageService.post(EMAIL_KEY, email);
+}
 
 function remove(emailId) {
     return storageService.remove(EMAIL_KEY, emailId);

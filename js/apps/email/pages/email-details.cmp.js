@@ -4,11 +4,55 @@ import emailSideRuler from '../cmps/email-side-ruler.cmp.js';
 export default {
 
     template: `
+    <section v-if="email" class="email-detail flex">
     <email-side-ruler />
-  
+    
+        <div class="">
+            <div class="action-ruler">
+                <span @click="goToApp()" class="material-icons detail-icon">arrow_back</span>
+                <span @click="deleteMail(email.id)" class="material-icons  detail-icon">delete</span>
+                
+            </div>
+            <div class="email-container">
+                <div class="mail-header">{{email.subject}}</div>
+                <div class="to-name">{{email.to}}</div>
+                <div class="mail-body">{{email.body}}</div>
+            </div>
+        </div>
+      
+    </section>
     `,
+    data() {
+        return {
+            email: null
+        }
+    },
+    created() {},
+    methods: {
+        goToApp() {
+            this.$router.push(`/email`);
+        },
+        deleteMail(id) {
+            return emailService.remove(id)
+                .then(() => {
+                    this.$router.push(`/email`);
+                })
+        }
+    },
     components: {
         emailSideRuler
 
+    },
+    watch: {
+        '$route.params.noteId': {
+            handler() {
+                const emailId = this.$route.params.emailId;
+                emailService.getById(emailId).then((email) => {
+                    this.email = email;
+                    console.log(this.email);
+                });
+            },
+            immediate: true,
+        },
     },
 };

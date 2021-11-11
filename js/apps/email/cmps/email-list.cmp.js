@@ -1,19 +1,28 @@
 import emailPreview from './email-preview.cmp.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 export default {
-  props: ['emails'],
-  template: `
+    props: ['emails'],
+    template: `
     <section class="list-holder">
-        <table>
-            <tbody>
-            <tr v-for="email in emails" :key="email.id">
-                <email-preview :email="email" />
-            </tr>
-            </tbody>
-        </table>
+        <div class="scroll-div">
+            <table>
+                <tbody>
+                <tr class="preview-tr" v-for="email in emails" :key="email.id">
+                    <email-preview :email="email" />
+                    <span @click="deleteMail(email.id)" class="material-icons dlt-icon">delete</span>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
     `,
-  methods: {},
-  components: {
-    emailPreview,
-  },
+    methods: {
+        deleteMail(id) {
+            eventBus.$emit('mail to delete', id)
+        },
+    },
+    components: {
+
+        emailPreview,
+    },
 };

@@ -1,15 +1,17 @@
 export default {
-  props: ['email'],
-  template: `
-    <section class="preview-box" @click="goToDetails(email.id)">
-        <h3>{{email.subject}}</h3>
-        <p>{{email.body}}</p>
-        <div>isRead</div>
+    props: ['email'],
+    template: `
+    <section class="preview-box flex" @click=" goToDetails(email.id)">
+        <div class="div-email-info">
+            <p class="p-subject">{{email.subject}}</p>
+            <p class="p-body">{{email.body}}</p>   
+        </div>
+        
     </section>
     `,
-  methods: {
-    goToDetails(id) {
-      this.$router.push(`/email/${id}`);
+    methods: {
+        goToDetails(id) {
+            this.$router.push(`/email/${id}`);
+        },
     },
-  },
 };

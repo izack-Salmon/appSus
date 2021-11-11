@@ -1,0 +1,30 @@
+.email-avatar {
+    padding-right: 20px;
+}
+
+.preview-box {
+    width: 1000px;
+}
+
+.preview-box>* {
+    margin: 0;
+    padding: 0;
+}
+
+.div-email-info {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.p-subject {
+    color: rgba(136, 136, 136, 0.75);
+    font-size: 21px;
+    margin: auto;
+    width: 150px;
+}
+
+.p-body {
+    color: rgba(136, 136, 136);
+    width: 400px;
+}
