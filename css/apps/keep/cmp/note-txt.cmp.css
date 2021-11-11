@@ -1,4 +1,5 @@
 .txt {
   justify-content: center;
   text-align: center;
+  word-wrap: break-word;
 }

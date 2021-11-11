@@ -2,21 +2,26 @@ import noteTxt from './note-txt.cmp.js';
 import noteImg from './note-img.cmp.js';
 import noteTodos from './note-todos.cmp.js';
 import noteVideo from './note-video.cmp.js';
+import noteCrudButtons from './note-crudButtons.cmp.js';
 export default {
   props: ['note'],
   template: `
        <div class='note-preview-txt'>
-            <div v-if='txtType'>
+            <div class='txt-contaier' v-if='txtType'>
             <note-txt :note='note'/>
+            <note-crud-buttons :note='note'/>
             </div>
             <div v-else-if='imgType'>
             <note-img :note='note'/>
+            <note-crud-buttons :note='note'/>
             </div>
-            <div v-else-if='todosType'>
+            <div class='todo-contaier' v-else-if='todosType'>
             <note-todos :note='note'/>
+            <note-crud-buttons :note='note'/>
             </div>
-            <div v-else-if='videoType'>
+            <div class='video-contaier' v-else-if='videoType'>
             <note-video :note='note'/>
+            <note-crud-buttons :note='note'/>
             </div>
        </div>
     `,
@@ -52,5 +57,6 @@ export default {
     noteImg,
     noteTodos,
     noteVideo,
+    noteCrudButtons,
   },
 };

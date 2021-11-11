@@ -5,7 +5,7 @@ export default {
   props: ['notes'],
   template: `
         <div class='note-container' v-if='notes'>
-           <div class='note-preview-container' v-for="note in notes" key=note.id>
+           <div class='note-preview-container' v-for="note in notes">
                <note-preview :note="note"/>
             </div>
         </div>

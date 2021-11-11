@@ -3,6 +3,10 @@ import { utilService } from '../../../services/util-service.js';
 
 export const noteService = {
   query,
+  save,
+  add,
+  remove,
+  getById,
 };
 
 const NOTE_KEY = 'notes';
@@ -48,6 +52,22 @@ const notes = [
 ];
 
 function query() {
-  utilService.saveToStorage(NOTE_KEY, notes);
+  // utilService.saveToStorage(NOTE_KEY, notes);
   return storageService.query(NOTE_KEY);
+}
+
+function save(note) {
+  if (note.id) return storageService.put(NOTE_KEY, note);
+  else return storageService.post(NOTE_KEY, note);
+}
+
+function add(note) {
+  return storageService.post(NOTE_KEY, note);
+}
+function remove(noteId) {
+  return storageService.remove(NOTE_KEY, noteId);
+}
+function getById(noteId) {
+  console.log('hi');
+  return storageService.get(NOTE_KEY, noteId);
 }

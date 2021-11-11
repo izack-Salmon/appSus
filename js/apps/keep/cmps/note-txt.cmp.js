@@ -1,6 +1,14 @@
+import noteCrudButtons from './note-crudButtons.cmp.js';
 export default {
   props: ['note'],
   template: `
-          <div class=txt>{{note.info.txt}}</div>
+        <section>
+          <div>
+            <div class=txt>{{note.info.txt}}</div>
+          </div>
+        </section>
       `,
+  components: {
+    noteCrudButtons,
+  },
 };

@@ -1,7 +1,16 @@
 .todo-container {
   justify-content: start;
   padding-left: 10px;
-  height: 100%;
+  height: 90%;
 }
 .label {
+}
+.struckThough {
+  text-decoration: line-through;
+}
+li:hover {
+  cursor: pointer;
+}
+li {
+  word-wrap: break-word;
 }
