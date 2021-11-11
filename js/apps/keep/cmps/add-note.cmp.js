@@ -34,6 +34,7 @@ export default {
       eventBus.$emit('textFormatActive', this.istextFormatActive);
       eventBus.$emit('isImageActive', this.isImageActive);
       eventBus.$emit('isListActive', this.isListActive);
+
       if (id === 'text_format') {
         this.istextFormatActive = !this.istextFormatActive;
         this.placeholderTxt = 'What on your mind... ';

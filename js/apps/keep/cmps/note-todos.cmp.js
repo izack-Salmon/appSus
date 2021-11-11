@@ -3,6 +3,7 @@ export default {
   template: `
   <div class='todo-container'>
   <h3 class=label>{{note.info.label}}</h3>
+  <hr>
          <ul>
              <li @click='struckThough' :class="{struckThough:isclick}" v-for="todo in note.info.todos">
                  {{todo.txt}}

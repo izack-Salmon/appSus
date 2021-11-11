@@ -6,8 +6,8 @@ export default {
           <section class='icons-in-notes'>
             <span class="material-icons">push_pin</span>
             <span class='palette-continer'>
-              <span @click='pickColor' class="material-icons">palette</span>
-              <input class='input-palette' type="color">
+              <span class="material-icons">palette</span>
+              <input value='#111111' @change="pickColor($event)" class='input-palette' type="color" >
             </span>
             <span class="material-icons">email</span>
             <span @click="editNote(note.id)" class="material-icons">edit</span>
@@ -16,7 +16,14 @@ export default {
           </section>
         `,
   methods: {
-    pickColor() {},
+    pickColor(e) {
+      var pickColor = {
+        color: e.target.value,
+        id: this.note.id,
+      };
+      console.log(e.target.value);
+      eventBus.$emit('noteColor', pickColor);
+    },
     deleteNote(noteId) {
       eventBus.$emit('deleteNote', noteId);
     },

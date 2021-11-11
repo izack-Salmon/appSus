@@ -25,6 +25,7 @@ export default {
             </div>
        </div>
     `,
+  created() {},
   methods: {
     getType() {
       return this.note.type;

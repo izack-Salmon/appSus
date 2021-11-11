@@ -33,9 +33,19 @@ export default {
     });
     eventBus.$on('deleteNote', this.deleteNote);
     eventBus.$on('textareaTxt', this.addNote);
+    eventBus.$on('noteColor', this.setColor);
     this.loadNotes();
   },
   methods: {
+    setColor(pickColor) {
+      console.log(pickColor);
+      noteService.getById(pickColor.id).then((note) => {
+        note.style.backgroundColor = pickColor.color;
+        noteService.save(note).then(() => {
+          this.loadNotes();
+        });
+      });
+    },
     loadNotes() {
       noteService.query().then((notes) => (this.notes = notes));
     },
@@ -44,6 +54,9 @@ export default {
         var noteTxt = {
           info: {
             txt: textareaTxt,
+          },
+          style: {
+            backgroundColor: '#11111',
           },
           isPinned: false,
           type: 'note-txt',
@@ -54,6 +67,9 @@ export default {
           info: {
             title: 'puki and me',
             url: textareaTxt,
+          },
+          style: {
+            backgroundColor: 'lightblue',
           },
           isPinned: false,
           type: 'note-img',
@@ -66,6 +82,9 @@ export default {
             label: 'i real trying my best :(',
             todos: [],
           },
+          style: {
+            backgroundColor: 'lightblue',
+          },
           isPinned: false,
           type: 'note-todos',
         };
@@ -74,7 +93,6 @@ export default {
           noteList.info.todos.push({});
           noteList.info.todos[idx].txt = line;
           noteList.info.todos[idx].doneAt = Date.now();
-
           console.log('im here');
         });
         noteService.add(noteList).then(() => this.loadNotes());

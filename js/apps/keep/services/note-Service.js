@@ -18,6 +18,9 @@ const notes = [
     info: {
       txt: 'Fullstack Me Baby!',
     },
+    style: {
+      backgroundColor: '#00d',
+    },
   },
   {
     id: 'n102h',
@@ -40,6 +43,9 @@ const notes = [
         { txt: 'Coding power', doneAt: 187111111 },
       ],
     },
+    style: {
+      backgroundColor: '#00d',
+    },
   },
   {
     id: 'n103j',
@@ -48,9 +54,11 @@ const notes = [
       label: 'Get my stuff together',
       url: 'https://www.youtube.com/embed/tgbNymZ7vqY',
     },
+    style: {
+      backgroundColor: '#00d',
+    },
   },
 ];
-
 function query() {
   // utilService.saveToStorage(NOTE_KEY, notes);
   return storageService.query(NOTE_KEY);
