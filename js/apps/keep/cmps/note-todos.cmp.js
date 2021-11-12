@@ -1,3 +1,4 @@
+import { utilService } from '../../../services/util-service.js';
 export default {
   props: ['note'],
   template: `
@@ -5,7 +6,7 @@ export default {
   <h3 class=label>{{note.info.label}}</h3>
   <hr>
          <ul>
-             <li @click='struckThough' :class="{struckThough:isclick}" v-for="todo in note.info.todos">
+             <li v-if="id" @click='struckThough' :class="{struckThough:isclick,true:id}" v-for="todo in note.info.todos">
                  {{todo.txt}}
              </li>
         </ul>
@@ -14,11 +15,19 @@ export default {
   data() {
     return {
       isclick: false,
+      id: null,
     };
   },
+  created() {
+    this.id = utilService.makeId;
+  },
   methods: {
+    makeId() {},
     struckThough() {
       this.isclick = !this.isclick;
     },
+  },
+  components: {
+    utilService,
   },
 };

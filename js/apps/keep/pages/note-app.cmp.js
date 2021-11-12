@@ -3,12 +3,15 @@ import noteList from '../cmps/note-list.cmp.js';
 import noteFillter from '../cmps/note-filter.cmp.js';
 import addNote from '../cmps/add-note.cmp.js';
 import { eventBus } from '../../../services/event-bus-service.js';
+import notePinted from '../cmps/note-pinted.cmp.js';
 export default {
   template: `
         <section class="app-main flex-column-center">
         <add-note />
+        <note-fillter @filtered="setFilter"/>
+        <note-pinted :notes='notes'/>
+        <hr>
             <note-list :notes='notesToShow' />
-            <note-fillter></note-Fillter>
         </section>
     `,
   data() {
@@ -19,6 +22,7 @@ export default {
       istextFormatActive: null,
       isImageActive: null,
       isListActive: null,
+      isSmartDisplayActive: null,
     };
   },
   created() {
@@ -31,18 +35,49 @@ export default {
     eventBus.$on('isListActive', (isListActive) => {
       this.isListActive = isListActive;
     });
+    eventBus.$on('isSmartDisplayActive', (isSmartDisplayActive) => {
+      this.isSmartDisplayActive = isSmartDisplayActive;
+    });
     eventBus.$on('deleteNote', this.deleteNote);
+
     eventBus.$on('textareaTxt', this.addNote);
+
     eventBus.$on('noteColor', this.setColor);
+
+    eventBus.$on('pinted', this.notePin);
+
+    eventBus.$on('duplicat', this.duplicatingNote);
+
     this.loadNotes();
   },
   methods: {
+    duplicatingNote(noteId) {
+      noteService.getById(noteId).then((note) => {
+        noteService.add(note).then(() => {
+          const msg = { type: 'success', txt: 'The note was duplicated' };
+          eventBus.$emit('showMsg', msg);
+          this.loadNotes();
+        });
+      });
+    },
+    setFilter(filterBy) {
+      this.filterBy = filterBy;
+    },
     setColor(pickColor) {
-      console.log(pickColor);
       noteService.getById(pickColor.id).then((note) => {
         note.style.backgroundColor = pickColor.color;
         noteService.save(note).then(() => {
           this.loadNotes();
+        });
+      });
+    },
+    notePin(noteId) {
+      noteService.getById(noteId).then((note) => {
+        note.isPinned = !note.isPinned;
+        noteService.save(note).then(() => {
+          this.loadNotes();
+          const msg = { type: 'info', txt: 'The Note is pined to the top' };
+          eventBus.$emit('showMsg', msg);
         });
       });
     },
@@ -61,7 +96,13 @@ export default {
           isPinned: false,
           type: 'note-txt',
         };
-        noteService.add(noteTxt).then(() => this.loadNotes());
+        noteService
+          .add(noteTxt)
+          .then(() => this.loadNotes())
+          .then(() => {
+            const msg = { type: 'success', txt: 'The note was add' };
+            eventBus.$emit('showMsg', msg);
+          });
       } else if (this.isImageActive) {
         var noteImage = {
           info: {
@@ -93,24 +134,48 @@ export default {
           noteList.info.todos.push({});
           noteList.info.todos[idx].txt = line;
           noteList.info.todos[idx].doneAt = Date.now();
-          console.log('im here');
         });
         noteService.add(noteList).then(() => this.loadNotes());
+      } else if (this.isSmartDisplayActive) {
+        var noteYoutube = {
+          info: {
+            label: 'i real trying my best :(',
+            url: textareaTxt,
+          },
+          style: {
+            backgroundColor: 'lightblue',
+          },
+          isPinned: false,
+          type: 'note-video',
+        };
+        noteService.add(noteYoutube).then(() => this.loadNotes());
       }
     },
     deleteNote(noteId) {
-      noteService.remove(noteId).then(() => this.loadNotes());
+      noteService
+        .remove(noteId)
+        .then(() => this.loadNotes())
+        .then(() => {
+          const msg = { type: 'info', txt: 'The Note deleted' };
+          eventBus.$emit('showMsg', msg);
+        });
     },
   },
   computed: {
     notesToShow() {
+      if (!this.filterBy) return this.notes;
+      const searchStr = this.filterBy.type.toLowerCase();
       console.log(this.notes);
-      return this.notes;
+      const notesToShows = this.notes.filter((note) => {
+        return !note.isPinned && note.type.toLowerCase().includes(searchStr);
+      });
+      return notesToShows;
     },
   },
   components: {
     noteList,
     noteFillter,
     addNote,
+    notePinted,
   },
 };

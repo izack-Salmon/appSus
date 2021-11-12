@@ -1,5 +1,6 @@
 /* note preview */
 .note-preview-container {
+  box-shadow: 0 4px 8px 0 rgba(49, 49, 49, 0.4), 0 10px 20px 0 rgba(0, 0, 0, 0.575);
   font-size: 18px;
   padding: 10px;
   border: 1px solid black;
@@ -10,10 +11,19 @@
   align-content: center;
   border-radius: 30px;
   margin: 40px;
+  min-height: 280px;
 }
 .note-container {
-  display: flex;
+  /* top: 50%; */
+
+  display: grid;
+  grid-template: repeat(12, 1fr);
+  grid-gap: 10px;
+  /* grid-template-rows: repeat(4, 1fr);   */
+  grid-template-columns: repeat(6, 1fr);
+  /* display: flex;
   flex-wrap: wrap;
+  justify-content: space-around; */
 }
 .note-preview {
   height: 100%;

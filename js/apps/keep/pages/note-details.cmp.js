@@ -71,8 +71,6 @@ export default {
         const noteId = this.$route.params.noteId;
         noteService.getById(noteId).then((note) => {
           this.note = note;
-          console.log(this.note.type);
-          console.log(this.note);
           // bookService.getNextBookId(noteId).then((noteId) => (this.nextBookId = bookId));
         });
       },

@@ -1,0 +1,28 @@
+.user-msg {
+  z-index: 10;
+  position: absolute;
+  font-size: 20px;
+  height: 70px;
+  top: 90%;
+  right: 5%;
+  /* transform: translate(50%, 50%); */
+  padding: 10px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.success {
+  background-color: rgb(27, 180, 27);
+}
+
+.error {
+  background-color: red;
+}
+.info {
+  background-color: lightskyblue;
+}

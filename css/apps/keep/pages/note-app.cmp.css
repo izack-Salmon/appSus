@@ -1,8 +1,8 @@
 .add-note {
-  font-size: 25px;
-  width: 50%;
+  font-size: 1.5rem;
+  width: 20rem;
   border: 0;
-  margin-left: 30px;
+  margin-left: 2rem;
   resize: none;
 }
 .add-note::-webkit-input-placeholder {
@@ -10,9 +10,9 @@
 }
 
 .input-icon span {
-  padding: 20px;
-  /* padding-top: 50px; */
-  font-size: 45px;
+  color: #464646;
+  padding: 1.5rem;
+  font-size: 2.8rem;
   opacity: 0.3;
 }
 
@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  width: 30vw;
+  /* width: 50rem; */
   border-radius: 30px;
   /* margin: 10px; */
 }
@@ -64,4 +64,8 @@
 .palette-continer .material-icons {
   /* color: rgba(214, 39, 39, 0.952); */
   /* opacity: 0.6; */
+}
+.pined {
+  color: red;
+  opacity: 1;
 }

@@ -3,7 +3,7 @@ import { eventBus } from '../../../services/event-bus-service.js';
 export default {
   template: `
         <section class=input-icon>
-          <textarea :placeholder="[[ placeholderTxt ]]" v-model='textareaTxt' @change="addNote" class=add-note type="text"></textarea>
+          <textarea :placeholder="[[ placeholderTxt ]]" v-on:keyup.enter='addNote' v-model='textareaTxt' class=add-note type="text"></textarea>
           <span @click="getActiveClass('text_format')" :class="{active:istextFormatActive}" class="material-icons">text_format</span>
           <span  @click="getActiveClass('image')" :class="{active:isImageActive}" class="material-icons">image</span>
           <span @click="getActiveClass('smart_display')" :class="{active:isSmartDisplayActive}" class="material-icons">smart_display</span>
@@ -31,9 +31,11 @@ export default {
       this.isImageActive = false;
       this.isSmartDisplayActive = false;
       this.isListActive = false;
+
       eventBus.$emit('textFormatActive', this.istextFormatActive);
       eventBus.$emit('isImageActive', this.isImageActive);
       eventBus.$emit('isListActive', this.isListActive);
+      eventBus.$emit('isSmartDisplayActive', this.isSmartDisplayActive);
 
       if (id === 'text_format') {
         this.istextFormatActive = !this.istextFormatActive;
@@ -45,7 +47,8 @@ export default {
         eventBus.$emit('isImageActive', this.isImageActive);
       } else if (id === 'smart_display') {
         this.isSmartDisplayActive = !this.isSmartDisplayActive;
-        this.placeholderTxt = 'Enter video URL';
+        this.placeholderTxt = 'Enter youtube URL ';
+        eventBus.$emit('isSmartDisplayActive', this.isSmartDisplayActive);
       } else if (id === 'list') {
         this.isListActive = !this.isListActive;
         this.placeholderTxt = 'Enter comma separated list...';

@@ -1,3 +1,6 @@
+/*  parts imports */
+@import 'parts/user-msg.css';
+
 /*  note app imports */
 
 @import 'apps/keep/cmp/note-preview.cmp.css';
@@ -5,6 +8,7 @@
 @import 'apps/keep/cmp/note.img.cmp.css';
 @import 'apps/keep/cmp/note-todos.cmp.css';
 @import 'apps/keep/cmp/note-video.cmp.css';
+@import 'apps/keep/cmp/note.filter.cmp.css';
 @import 'apps/keep/pages/note-app.cmp.css';
 @import 'apps/keep/pages/note-details.cmp.css';
 
@@ -21,64 +25,48 @@
 /* main */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
-
 
 /* header */
 
 .app-header {
-    padding: 10px;
-    height: 5vh;
-    background-color: #f7d08a;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 10px;
+  height: 5vh;
+  background-color: #f7d08a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
 
 /* footer */
 
 .app-footer {
-<<<<<<< HEAD
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
   padding: 10px;
+  /* height: 5vh; */
   background-color: #f7d08a;
 }
 
 .app-main {
   height: 90vh;
   background-color: #f0f0f0;
-=======
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    /* height: 5vh; */
-    background-color: #f7d08a;
-}
-
-.app-main {
-    height: 90vh;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    background-color: #f7d08a;
->>>>>>> 0f9459bfb275294382a98ce74de012ca4ee0593d
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: #f7d08a;
 }
 
 /* Helpers */
@@ -88,19 +76,16 @@ body {
 }
 
 .flex-column {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
 }
 
 .flex-column-center {
-  height: 90vh;
+  overflow: scroll;
+  height: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
+  /* margin: bottom 10px; */
 }
-=======
-    display: flex;
-    flex-direction: column;
-}
->>>>>>> 0f9459bfb275294382a98ce74de012ca4ee0593d

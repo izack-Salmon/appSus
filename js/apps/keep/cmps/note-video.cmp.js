@@ -1,7 +1,7 @@
 export default {
   props: ['note'],
   template: `
-            <iframe width="100%" height="70%" :src="getVideoUrl"></iframe>
+            <iframe width="100%" height="70%" :src="getVideoUrl" frameborder="0" allowfullscreen></iframe>
             `,
   methods: {
     getId(url) {

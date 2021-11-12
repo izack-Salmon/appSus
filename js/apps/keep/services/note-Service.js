@@ -32,6 +32,7 @@ const notes = [
     style: {
       backgroundColor: '#00d',
     },
+    isPinned: true,
   },
   {
     id: 'n103j',
@@ -46,6 +47,7 @@ const notes = [
     style: {
       backgroundColor: '#00d',
     },
+    isPinned: true,
   },
   {
     id: 'n103j',
@@ -57,6 +59,7 @@ const notes = [
     style: {
       backgroundColor: '#00d',
     },
+    isPinned: false,
   },
 ];
 function query() {
@@ -76,6 +79,5 @@ function remove(noteId) {
   return storageService.remove(NOTE_KEY, noteId);
 }
 function getById(noteId) {
-  console.log('hi');
   return storageService.get(NOTE_KEY, noteId);
 }
