@@ -17,6 +17,12 @@ export default {
     `,
     data() {
         return {
+            criteria: {
+                status: 'sent',
+                txt: '',
+                // isRead: null,
+                // isStared: true, 
+            },
             emails: null,
             filterBy: null,
         }
@@ -35,14 +41,22 @@ export default {
                     this.loadEmails();
                 })
         })
+        eventBus.$on('change status', (folderStr) => {
+            this.criteria.status = folderStr;
+            console.log(folderStr, 'this.stat=', this.criteria.status)
+            this.loadEmails();
+        })
 
     },
     methods: {
         loadEmails() {
-            emailService.query()
-                .then(emails => {
+            emailService.query(this.criteria)
+                .then((emails) => {
+                    console.log(emails);
                     this.emails = emails
-                })
+                });
+
+
         },
         setFilter(filterBy) {
             this.filterBy = filterBy;
@@ -56,6 +70,25 @@ export default {
                 return email.to.toLowerCase().includes(searchStr)
             });
             return emailsToShow;
+        },
+
+        emailCriteriaToShow() {
+            if (!this.criteria) {
+                const status = this.status;
+                this.emails.filter(email => {
+                    return email.status.includes(status)
+                });
+            } else {
+                const status = this.status;
+                const searchStr = this.criteria.txt.toLowerCase();
+                const emailsToShow = this.emails.filter(email => {
+                    return email.txt.toLowerCase().includes(searchStr) ||
+                        email.subject.toLowerCase().includes(searchStr) &&
+                        email.status.includes(status)
+                });
+                return emailsToShow;
+
+            }
         }
 
     },
