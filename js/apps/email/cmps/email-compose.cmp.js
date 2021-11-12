@@ -44,6 +44,7 @@ export default {
                 body: '',
                 isRead: true,
                 sentAt: 0,
+                status: '/sent'
             },
         }
 

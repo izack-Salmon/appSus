@@ -9,7 +9,8 @@ export default {
                 <tbody>
                 <tr class="preview-tr" v-for="email in emails" :key="email.id">
                     <email-preview :email="email" />
-                    <span @click="deleteMail(email.id)" class="material-icons dlt-icon">delete</span>
+                    <span class="material-icons list-icons">drafts</span>
+                    <span @click="deleteMail(email.id)" class="material-icons list-icons">delete</span>
                 </tr>
                 </tbody>
             </table>

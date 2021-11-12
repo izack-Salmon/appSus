@@ -1,6 +1,7 @@
 import { storageService } from '../../../services/async-storage-service.js';
 import { utilService } from '../../../services/util-service.js';
 const EMAIL_KEY = 'emails';
+
 export const emailService = {
     query,
     add,
@@ -16,33 +17,45 @@ const loggedinUser = {
 
 const email = {
     id: 'd121',
-    subject: 'Shalom!',
-    body: 'Would love to catch up sometimes',
+    subject: 'Vue Code',
+    body: 'I "love" vue coding :)',
     isRead: false,
     sentAt: 1551133930594,
-    to: 'momo@momo.com',
+    to: 'user@appsus.com',
+    status: 'inbox'
 };
-const email2 = {
-    id: 'g104',
-    subject: 'Coding Academy',
-    body: 'Would love to catch up sometimes',
-    isRead: false,
-    sentAt: 1551133930594,
-    to: 'momo@momo.com',
-};
-const criteria = {
-    status: 'inbox/sent/trash/draft',
-    txt: 'puki', // no need to support complex text search
-    isRead: true, // (optional property, if missing: show all)
-    isStared: true, // (optional property, if missing: show all)
-    lables: ['important', 'romantic'], // has any of the labels
-};
+
+
+
 
 
 _createEmails()
 
-function query() {
-    return storageService.query(EMAIL_KEY);
+function query(data) {
+    var emailsToShow
+    const criteira = {
+        status: data.status,
+        txt: data.txt, // no need to support complex text search
+        // isRead: true, // (optional property, if missing: show all)
+        // isStared: true, // (optional property, if missing: show all)
+    }
+    console.log(data.status)
+    console.log(criteira.status)
+
+    emailsToShow = storageService.query(EMAIL_KEY).then((emails) => {
+        emailsToShow = emails.filter(email => {
+            console.log(email.status, criteira.status)
+            return email.status.includes(criteira.status)
+                // email.body.includes(criteira.txt) ||
+                //     email.subject.includes(criteira.txt)
+                //  &&
+                // email.status.includes(status)
+        });
+        console.log(emailsToShow);
+        return emailsToShow;
+    })
+    console.log('dsdsd', emailsToShow);
+    return Promise.resolve(emailsToShow);
 }
 
 
