@@ -54,7 +54,13 @@ export default {
             if (this.newEmail.to !== '' && this.newEmail.subject !== '') {
                 this.newEmail.sentAt = Date.now()
                 eventBus.$emit('new email created', this.newEmail)
+                const msg = { type: 'success', txt: 'Sending email..' };
+                eventBus.$emit('showMsg', msg);
+            } else {
+                const msg = { type: 'error', txt: 'Fields EMPTY' };
+                eventBus.$emit('showMsg', msg);
             }
+
         },
         cleanfields() {
             this.newEmail.to = ''

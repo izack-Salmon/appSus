@@ -38,6 +38,8 @@ export default {
             return emailService.remove(id)
                 .then(() => {
                     this.loadEmails();
+                    const msg = { type: 'success', txt: 'Email deleted' };
+                    eventBus.$emit('showMsg', msg);
                 })
         })
         eventBus.$on('change status', (folderStr) => {

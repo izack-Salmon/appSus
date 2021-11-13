@@ -12,7 +12,7 @@
     width: 200px;
     height: 200px;
     z-index: 3;
-    top: 36px;
+    top: 60px;
     right: 10px;
     box-shadow: 3px 5px 5px rgba(80, 77, 77, 0.6);
 }
@@ -23,6 +23,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 55px;
 }
 
-.rout-icons {}
+.close-btn-box {
+    margin: 5px;
+    text-align: right;
+}
+
+.logo-router {
+    color: rgb(41, 41, 41);
+}

@@ -1,28 +1,41 @@
 .user-msg {
-  z-index: 10;
-  position: absolute;
-  font-size: 20px;
-  height: 70px;
-  top: 90%;
-  right: 5%;
-  /* transform: translate(50%, 50%); */
-  padding: 10px;
+    font-family: handwriting;
+    border-radius: 15px;
+    z-index: 10;
+    position: absolute;
+    font-size: 20px;
+    height: 120px;
+    text-align: center;
+    top: 80%;
+    right: 5%;
+    /* transform: translate(50%, 50%); */
+    padding: 10px;
 }
+
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.1s;
+    transition: opacity 0.1s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+{
+    opacity: 0;
 }
 
 .success {
-  background-color: rgb(27, 180, 27);
+    border: 3px solid rgb(27, 180, 27);
+    background-color: white;
 }
 
 .error {
-  background-color: red;
+    border: 3px solid rgb(221, 32, 32);
+    background-color: white;
 }
+
 .info {
-  background-color: lightskyblue;
+    border: 3px solid rgb(27, 180, 27);
+    background-color: white;
 }

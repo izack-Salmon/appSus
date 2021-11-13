@@ -32,6 +32,8 @@ export default {
     methods: {
         notRead(id) {
             eventBus.$emit('set not read', id)
+            const msg = { type: 'success', txt: 'Mark as Unread' };
+            eventBus.$emit('showMsg', msg)
         },
         goToApp() {
             this.$router.push(`/email`);

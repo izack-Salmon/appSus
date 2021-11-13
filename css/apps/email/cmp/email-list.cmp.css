@@ -1,6 +1,6 @@
 .scroll-div {
     /* scrollbar-width: thin; */
-    width: auto;
+    width: 1170px;
     overflow: hidden;
     overflow-y: scroll;
     height: 73.5vh;
