@@ -1,4 +1,13 @@
 .app-content {
     display: flex;
-    gap: 20px;
+}
+
+.on-icon {
+    padding: 5px;
+    border-radius: 40px;
+}
+
+.on-icon:hover {
+    transition: 0.3s;
+    background-color: rgb(216, 216, 216);
 }

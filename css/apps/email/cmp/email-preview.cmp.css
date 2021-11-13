@@ -17,14 +17,26 @@
     align-content: center;
 }
 
+.email-starred-box {
+    width: 100px;
+    height: 100%;
+}
+
 .p-subject {
-    color: rgba(136, 136, 136, 0.75);
-    font-size: 21px;
+    font-weight: 600;
+    color: rgb(49, 49, 49);
+    font-size: 18px;
     margin: auto;
-    width: 150px;
+    width: 300px;
 }
 
 .p-body {
+    font-size: 18px;
+    margin: auto;
     color: rgba(136, 136, 136);
-    width: 400px;
+    width: 600px;
+}
+
+.markit {
+    background-color: rgb(245, 245, 245);
 }

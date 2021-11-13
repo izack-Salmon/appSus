@@ -1,0 +1,19 @@
+.homepage {
+    height: 90vh;
+    width: 100%;
+    background-image: url(../../img/homepage.jpg);
+    background-size: cover;
+}
+
+.home-title {
+    position: absolute;
+    font-family: handwriting;
+    top: 35%;
+    right: 47%;
+}
+
+.home-title p {
+    color: rgb(41, 41, 41);
+    margin: 0;
+    font-size: 100px;
+}

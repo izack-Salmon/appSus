@@ -7,6 +7,7 @@ export const emailService = {
     add,
     remove,
     getById,
+    save,
 };
 var gEmails = []
 
@@ -33,23 +34,19 @@ _createEmails()
 
 function query(data) {
     var emailsToShow
+
     const criteira = {
         status: data.status,
-        txt: data.txt, // no need to support complex text search
-        // isRead: true, // (optional property, if missing: show all)
-        // isStared: true, // (optional property, if missing: show all)
+        txt: data.txt,
+        isRead: ''
+            // isStared: true, // (optional property, if missing: show all)
     }
-    console.log(data.status)
-    console.log(criteira.status)
 
     emailsToShow = storageService.query(EMAIL_KEY).then((emails) => {
         emailsToShow = emails.filter(email => {
-            console.log(email.status, criteira.status)
-            return email.status.includes(criteira.status)
-                // email.body.includes(criteira.txt) ||
-                //     email.subject.includes(criteira.txt)
-                //  &&
-                // email.status.includes(status)
+            return email.status.includes(criteira.status) &&
+                (email.body.includes(criteira.txt) ||
+                    email.subject.includes(criteira.txt))
         });
         console.log(emailsToShow);
         return emailsToShow;
@@ -72,7 +69,7 @@ function save(email) {
     else return storageService.post(EMAIL_KEY, email);
 }
 
-// function addReview(review, bookId) {
+
 
 function getById(emailId) {
     return storageService.get(EMAIL_KEY, emailId);

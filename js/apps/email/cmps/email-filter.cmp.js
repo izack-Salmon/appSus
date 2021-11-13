@@ -2,22 +2,18 @@ export default {
     template: `
             <section>
                 <div class="email-top-ruler">
-                    <input @input="filter" v-model="filterBy.txt" type="text" placeholder="search mail">
+                    <input @input="filter" v-model="txt" type="text" placeholder="search mail">
                 </div>
             </section>  
     `,
     data() {
         return {
-            filterBy: {
-                txt: '',
-                isRead: false,
-            },
+            txt: '',
         };
     },
     methods: {
         filter() {
-            console.log(kef)
-                //   this.$emit('filtered', { ...this.filterBy });
+            this.$emit('filtered', this.txt);
         },
     },
 };

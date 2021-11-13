@@ -18,13 +18,12 @@ export default {
     data() {
         return {
             criteria: {
-                status: 'sent',
+                status: 'inbox',
                 txt: '',
                 // isRead: null,
                 // isStared: true, 
             },
             emails: null,
-            filterBy: null,
         }
     },
     created() {
@@ -43,23 +42,45 @@ export default {
         })
         eventBus.$on('change status', (folderStr) => {
             this.criteria.status = folderStr;
-            console.log(folderStr, 'this.stat=', this.criteria.status)
             this.loadEmails();
+        })
+        eventBus.$on('set isRead to true', (id) => {
+            emailService.getById(id).then((email) => {
+                email.isRead = true
+                emailService.save(email).then(
+                    this.loadEmails()
+                )
+            })
+        })
+        eventBus.$on('set not read', (id) => {
+            emailService.getById(id).then((email) => {
+                email.isRead = false
+                emailService.save(email).then(
+                    this.loadEmails()
+                )
+            })
         })
 
     },
     methods: {
+        // sortByTitle(emails) {
+        //     emails.sort(function(a, b) {
+        //         if (a.subject < b.subject) { return -1; }
+        //         if (a.subject > b.subject) { return 1; }
+        //         return 0;
+        //     })
+        //     return emails
+        // },
         loadEmails() {
             emailService.query(this.criteria)
                 .then((emails) => {
-                    console.log(emails);
                     this.emails = emails
                 });
-
-
         },
-        setFilter(filterBy) {
-            this.filterBy = filterBy;
+        setFilter(str) {
+            console.log(str)
+            this.criteria.txt = str;
+            this.loadEmails()
         },
     },
     computed: {

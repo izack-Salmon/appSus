@@ -1,5 +1,8 @@
 /*  parts imports */
+
 @import 'parts/user-msg.css';
+@import 'parts/app-header.css';
+@import 'parts/home-page.css';
 
 /*  note app imports */
 
@@ -22,60 +25,52 @@
 @import 'apps/email/cmp/email-side-ruler.css';
 @import 'apps/email/cmp/email-compose.css';
 
+/* fonts */
+
+@font-face {
+    font-family: ubo-regular;
+    src: url(/fonts/email/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+    font-family: handwriting;
+    src: url(/fonts/email/Pacifico-Regular.ttf);
+}
+
+
 /* main */
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
+
 
 /* header */
 
 .app-header {
-  padding: 10px;
-  height: 5vh;
-  background-color: #f7d08a;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    padding: 10px;
+    height: 10vh;
+    background-color: rgb(212, 238, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 
 /* footer */
 
 .app-footer {
-<<<<<<< HEAD
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  /* height: 5vh; */
-  background-color: #f7d08a;
-}
-
-.app-main {
-  height: 90vh;
-  background-color: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  background-color: #f7d08a;
-=======
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
     padding: 10px;
-    /* height: 5vh; */
-    background-color: #f7d08a;
+    height: 10vh;
+    background-color: rgb(212, 238, 255);
 }
 
 .app-main {
@@ -89,8 +84,7 @@ body {
     width: 100%;
     text-align: center;
     padding: 10px;
-    background-color: #f7d08a;
->>>>>>> 0e01829b6581c499798a2dbbf58cc2735fd9c8a1
+    background-color: rgb(212, 238, 255);
 }
 
 
@@ -101,29 +95,16 @@ body {
 }
 
 .flex-column {
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-column-center {
-  overflow: scroll;
-  height: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  /* margin: bottom 10px; */
-}
-=======
     display: flex;
     flex-direction: column;
 }
 
 .flex-column-center {
-    height: 90vh;
+    overflow: scroll;
+    height: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
+    /* margin: bottom 10px; */
 }
->>>>>>> 0e01829b6581c499798a2dbbf58cc2735fd9c8a1
