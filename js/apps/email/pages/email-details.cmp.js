@@ -4,7 +4,7 @@ import { eventBus } from '../../../services/event-bus-service.js';
 import { router } from '../../../services/routes.js';
 
 export default {
-  template: `
+    template: `
     <section v-if="email" class="email-detail flex">
     <email-side-ruler />
     
@@ -24,44 +24,46 @@ export default {
       
     </section>
     `,
-  data() {
-    return {
-      email: null,
-    };
-  },
-  created() {},
-  methods: {
-    emailToNote(email) {
-      eventBus.$emit('emailToNote', email);
-      this.$router.push('/keep');
+    data() {
+        return {
+            email: null,
+        };
     },
-    notRead(id) {
-      eventBus.$emit('set not read', id);
-      const msg = { type: 'success', txt: 'Mark as Unread' };
-      eventBus.$emit('showMsg', msg);
+    created() {},
+    methods: {
+        emailToNote(email) {
+            eventBus.$emit('emailToNote', email);
+            this.$router.push('/keep');
+            const msg = { type: 'success', txt: 'Converting Email' };
+            eventBus.$emit('showMsg', msg);
+        },
+        notRead(id) {
+            eventBus.$emit('set not read', id);
+            const msg = { type: 'success', txt: 'Mark as Unread' };
+            eventBus.$emit('showMsg', msg);
+        },
+        goToApp() {
+            this.$router.push(`/email`);
+        },
+        deleteMail(id) {
+            return emailService.remove(id).then(() => {
+                this.$router.push(`/email`);
+            });
+        },
     },
-    goToApp() {
-      this.$router.push(`/email`);
+    components: {
+        emailSideRuler,
     },
-    deleteMail(id) {
-      return emailService.remove(id).then(() => {
-        this.$router.push(`/email`);
-      });
+    watch: {
+        '$route.params.noteId': {
+            handler() {
+                const emailId = this.$route.params.emailId;
+                emailService.getById(emailId).then((email) => {
+                    this.email = email;
+                    // console.log(this.email);
+                });
+            },
+            immediate: true,
+        },
     },
-  },
-  components: {
-    emailSideRuler,
-  },
-  watch: {
-    '$route.params.noteId': {
-      handler() {
-        const emailId = this.$route.params.emailId;
-        emailService.getById(emailId).then((email) => {
-          this.email = email;
-          // console.log(this.email);
-        });
-      },
-      immediate: true,
-    },
-  },
 };
