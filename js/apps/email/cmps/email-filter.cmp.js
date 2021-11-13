@@ -21,7 +21,6 @@ export default {
       this.$emit('filtered', this.txt);
     },
     selectRead(event) {
-      console.log(event.target.value);
       if (event.target.value === 'Read') {
         this.$emit('filterRead', true);
       } else if (event.target.value === 'unRead') {

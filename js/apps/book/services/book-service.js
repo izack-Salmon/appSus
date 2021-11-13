@@ -375,7 +375,7 @@ export const bookService = {
 
 function getGoogleBooks(searchBy) {
   var val = utilService.loadFromStorage(searchBy);
-  console.log(val);
+  // console.log(val);
   if (val) {
     console.log('load form storge');
     return val;

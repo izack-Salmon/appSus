@@ -22,7 +22,7 @@ export default {
         color: e.target.value,
         id: this.note.id,
       };
-      console.log(e.target.value);
+      // console.log(e.target.value);
       eventBus.$emit('noteColor', pickColor);
     },
     deleteNote(noteId) {
@@ -37,9 +37,11 @@ export default {
     duplicNote(noteId) {
       eventBus.$emit('duplicat', noteId);
     },
-    sendEmail(noteId) {
-      eventBus.$emit('noteToEmail', note);
+    sendEmail(note) {
       this.$router.push(`/email`);
+      setTimeout(() => {
+        eventBus.$emit('noteToEmail', note);
+      }, 500);
     },
   },
 };

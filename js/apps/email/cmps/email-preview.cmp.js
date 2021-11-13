@@ -1,6 +1,6 @@
 export default {
-    props: ['email'],
-    template: `
+  props: ['email'],
+  template: `
     <section  class="preview-box flex"  @click="goToDetails(email.id)">
         <div class="div-email-info">
             <div class="email-starred-box">
@@ -12,13 +12,10 @@ export default {
         
     </section>
     `,
-    created() {
-        console.log(this.email.isRead)
+  created() {},
+  methods: {
+    goToDetails(id) {
+      this.$router.push(`/email/${id}`);
     },
-    methods: {
-        goToDetails(id) {
-            this.$router.push(`/email/${id}`);
-        },
-
-    },
+  },
 };

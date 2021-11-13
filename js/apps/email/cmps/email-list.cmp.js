@@ -1,8 +1,8 @@
 import emailPreview from './email-preview.cmp.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 export default {
-    props: ['emails'],
-    template: `
+  props: ['emails'],
+  template: `
     <section class="list-holder">
         <div class="scroll-div">
             <table>
@@ -17,19 +17,18 @@ export default {
         </div>
     </section>
     `,
-    data() {
-        return {}
+  data() {
+    return {};
+  },
+  methods: {
+    deleteMail(id) {
+      eventBus.$emit('mail to delete', id);
     },
-    methods: {
-        deleteMail(id) {
-            eventBus.$emit('mail to delete', id)
-        },
-        markAsRead(id) {
-            eventBus.$emit('set isRead to true', id)
-        },
+    markAsRead(id) {
+      eventBus.$emit('set isRead to true', id);
     },
-    components: {
-
-        emailPreview,
-    },
+  },
+  components: {
+    emailPreview,
+  },
 };

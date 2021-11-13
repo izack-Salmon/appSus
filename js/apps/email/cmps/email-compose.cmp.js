@@ -1,6 +1,6 @@
-import { eventBus } from "../../../services/event-bus-service.js"
+import { eventBus } from '../../../services/event-bus-service.js';
 export default {
-    template: `
+  template: `
     <div class="box">
     <div @click=" isHidden = !isHidden" class="compose-button">
         <div class="icon">+</div>
@@ -35,63 +35,63 @@ export default {
     </div>
 
     `,
-    data() {
-        return {
-            isHidden: true,
-            newEmail: {
-                to: '',
-                subject: '',
-                body: '',
-                isRead: true,
-                sentAt: 0,
-                status: 'sent',
-            },
-
-        }
+  data() {
+    return {
+      isHidden: true,
+      newEmail: {
+        to: '',
+        subject: '',
+        body: '',
+        isRead: true,
+        sentAt: 0,
+        status: 'sent',
+      },
+    };
+  },
+  created() {
+    eventBus.$on('noteToEmail', this.getNote);
+  },
+  methods: {
+    getNote(note) {
+      this.isHidden = !this.isHidden;
+      console.log(note);
+      if (note.type === 'note-txt') {
+        this.newEmail.body = note.info.txt;
+      } else if (note.type === 'note-img') {
+        this.newEmail.subject = note.info.title;
+        this.newEmail.body = note.info.url;
+      } else if (note.type === 'note-todos') {
+        this.newEmail.subject = note.info.label;
+        note.info.todos.forEach((element) => {
+          this.newEmail.body += ` 
+                      • ${element.txt}`;
+        });
+      } else if (note.type === 'note-video') {
+        this.newEmail.subject = note.info.label;
+        this.newEmail.body = note.info.url;
+      } else {
+        this.newEmail.subject = note.subject;
+        this.newEmail.to = note.to;
+        this.newEmail.body = note.body;
+      }
     },
-    created() {
-        eventBus.$on('noteToEmail', (note) => {
-            if (note.type === 'note-txt') {
-                this.body = note.info.txt
-            } else if (note.type === 'note-img') {
-                this.subject = note.info.title
-                this.body = note.info.url
-            } else if (note.type === 'note-todos') {
-                this.subject = note.info.label
-                note.info.todos.forEach(element => {
-                    this.body += ` 
-                    • ${element.txt}`
-                });
-            } else if (note.type === 'note-video') {
-                this.subject = note.info.label
-                this.body = note.info.url
-            } else {
-                this.subject = note.subject
-                this.to = note.to
-                this.body = note.body
-            }
-            this.isHidden = false
-        })
+    sendEmail() {
+      if (this.newEmail.to !== '' && this.newEmail.subject !== '') {
+        this.newEmail.sentAt = Date.now();
+        eventBus.$emit('new email created', this.newEmail);
+        const msg = { type: 'success', txt: 'Sending email..' };
+        eventBus.$emit('showMsg', msg);
+      } else {
+        const msg = { type: 'error', txt: 'Fields EMPTY' };
+        eventBus.$emit('showMsg', msg);
+      }
     },
-    methods: {
-        sendEmail() {
-            if (this.newEmail.to !== '' && this.newEmail.subject !== '') {
-                this.newEmail.sentAt = Date.now()
-                eventBus.$emit('new email created', this.newEmail)
-                const msg = { type: 'success', txt: 'Sending email..' };
-                eventBus.$emit('showMsg', msg);
-            } else {
-                const msg = { type: 'error', txt: 'Fields EMPTY' };
-                eventBus.$emit('showMsg', msg);
-            }
-
-        },
-        cleanfields() {
-            this.newEmail.to = ''
-            this.newEmail.subject = ''
-            this.newEmail.body = ''
-            this.newEmail.sentAt = 0
-            console.log('good')
-        }
+    cleanfields() {
+      this.newEmail.to = '';
+      this.newEmail.subject = '';
+      this.newEmail.body = '';
+      this.newEmail.sentAt = 0;
+      //   console.log('good');
     },
+  },
 };

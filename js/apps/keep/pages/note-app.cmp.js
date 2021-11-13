@@ -180,7 +180,7 @@ export default {
     notesToShow() {
       if (!this.filterBy) return this.notes;
       const searchStr = this.filterBy.type.toLowerCase();
-      console.log(this.notes);
+      // console.log(this.notes);
       const notesToShows = this.notes.filter((note) => {
         return !note.isPinned && note.type.toLowerCase().includes(searchStr);
       });
