@@ -1,5 +1,6 @@
 import { emailService } from '../services/email-services.js';
 import emailSideRuler from '../cmps/email-side-ruler.cmp.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
 
@@ -7,11 +8,11 @@ export default {
     <section v-if="email" class="email-detail flex">
     <email-side-ruler />
     
-        <div class="">
+        <div class="paper">
             <div class="action-ruler">
-                <span @click="goToApp()" class="material-icons detail-icon">arrow_back</span>
-                <span @click="deleteMail(email.id)" class="material-icons  detail-icon">delete</span>
-                
+                <span @click="goToApp()" class="material-icons detail-icon on-icon">arrow_back</span>
+                <span @click="deleteMail(email.id)" class="material-icons  detail-icon on-icon">delete</span>
+                <span @click="notRead(email.id)" class="material-icons detail-icon on-icon">markunread</span>
             </div>
             <div class="email-container">
                 <div class="mail-header">{{email.subject}}</div>
@@ -29,6 +30,9 @@ export default {
     },
     created() {},
     methods: {
+        notRead(id) {
+            eventBus.$emit('set not read', id)
+        },
         goToApp() {
             this.$router.push(`/email`);
         },

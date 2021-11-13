@@ -1,5 +1,8 @@
 /*  parts imports */
+
 @import 'parts/user-msg.css';
+@import 'parts/app-header.css';
+@import 'parts/home-page.css';
 
 /*  note app imports */
 
@@ -22,6 +25,18 @@
 @import 'apps/email/cmp/email-side-ruler.css';
 @import 'apps/email/cmp/email-compose.css';
 
+/* fonts */
+
+@font-face {
+  font-family: ubo-regular;
+  src: url(/fonts/email/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+  font-family: handwriting;
+  src: url(/fonts/email/Pacifico-Regular.ttf);
+}
+
 /* main */
 
 * {
@@ -36,8 +51,8 @@ body {
 
 .app-header {
   padding: 10px;
-  height: 5vh;
-  background-color: #f7d08a;
+  height: 10vh;
+  background-color: rgb(212, 238, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,12 +66,12 @@ body {
   width: 100%;
   text-align: center;
   padding: 10px;
-  /* height: 5vh; */
-  background-color: #f7d08a;
+  height: 10vh;
+  background-color: rgb(212, 238, 255);
 }
 
 .app-main {
-  height: 90vh;
+  height: 89vh;
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
@@ -66,7 +81,7 @@ body {
   width: 100%;
   text-align: center;
   padding: 10px;
-  background-color: #f7d08a;
+  background-color: rgb(212, 238, 255);
 }
 
 /* Helpers */
@@ -82,7 +97,7 @@ body {
 
 .flex-column-center {
   overflow: scroll;
-  height: 95%;
+  /* height: 95%; */
   display: flex;
   flex-direction: column;
   align-items: center;

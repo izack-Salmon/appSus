@@ -76,7 +76,7 @@ export default {
         note.isPinned = !note.isPinned;
         noteService.save(note).then(() => {
           this.loadNotes();
-          const msg = { type: 'info', txt: 'The Note is pined to the top' };
+          const msg = { type: 'info', txt: 'The Note is pined' };
           eventBus.$emit('showMsg', msg);
         });
       });
@@ -100,7 +100,7 @@ export default {
           .add(noteTxt)
           .then(() => this.loadNotes())
           .then(() => {
-            const msg = { type: 'success', txt: 'The note was add' };
+            const msg = { type: 'success', txt: 'Note Add' };
             eventBus.$emit('showMsg', msg);
           });
       } else if (this.isImageActive) {
@@ -156,7 +156,7 @@ export default {
         .remove(noteId)
         .then(() => this.loadNotes())
         .then(() => {
-          const msg = { type: 'info', txt: 'The Note deleted' };
+          const msg = { type: 'info', txt: 'Note Deleted' };
           eventBus.$emit('showMsg', msg);
         });
     },

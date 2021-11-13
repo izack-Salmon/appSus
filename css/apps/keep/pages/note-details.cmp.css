@@ -1,6 +1,7 @@
-.note-txt > * {
-  margin: 10px;
+.note-txt>* {
+    margin: 10px;
 }
+
 .center {
-  text-align: center;
+    text-align: center;
 }

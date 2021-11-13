@@ -1,7 +1,10 @@
 export default {
-  template: `
-        <div class='app-main flex-column-center'>
-            hi
-        </div>
+    template: `
+        <section class='homepage'>
+            <div class="home-title">
+                <p>appSus</p>
+            </div>
+        </section>
+
     `,
 };

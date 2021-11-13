@@ -1,12 +1,15 @@
+import appsButton from "./apps-button.cmp.js";
+
 export default {
-  template: `
+    template: `
         <header class="app-header">
             <h3>appSus</h3>
             <nav>
-                <router-link to="/">Home</router-link> |
-                <router-link to="/email">email</router-link> |
-                <router-link to="/keep">keep</router-link> |
+                <apps-button />
             </nav>
         </header>
     `,
+    components: {
+        appsButton,
+    }
 };

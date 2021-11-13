@@ -15,7 +15,7 @@ export default {
     return {
       placeholderTxt: 'What on your mind... ',
       textareaTxt: null,
-      istextFormatActive: false,
+      istextFormatActive: true,
       isImageActive: false,
       isSmartDisplayActive: false,
       isListActive: false,

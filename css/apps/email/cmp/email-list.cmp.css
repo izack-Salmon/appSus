@@ -1,15 +1,16 @@
 .scroll-div {
+    /* scrollbar-width: thin; */
     width: auto;
     overflow: hidden;
     overflow-y: scroll;
+    height: 73.5vh;
 }
 
 .preview-tr {
-    padding-left: 20px;
+    width: 1150px;
     height: 40px;
     display: flex;
     border-bottom: 1px solid rgb(212, 212, 212);
-    ;
 }
 
 .preview-tr:hover {

@@ -8,7 +8,6 @@ export default {
         <section class="email-side-ruler">
             <email-compose/>
             <email-folder-list />
-            
         </section>
     `,
     components: {
