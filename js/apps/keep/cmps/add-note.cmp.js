@@ -13,9 +13,9 @@ export default {
       `,
   data() {
     return {
-      placeholderTxt: 'What on your mind... ',
+      placeholderTxt: 'To add note pick note type ',
       textareaTxt: null,
-      istextFormatActive: true,
+      istextFormatActive: false,
       isImageActive: false,
       isSmartDisplayActive: false,
       isListActive: false,

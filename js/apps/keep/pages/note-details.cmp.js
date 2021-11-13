@@ -22,7 +22,12 @@ export default {
       <h3 class='center'>label</h3> <input v-model='note.info.label' type="text">
       <h3 class='center'>url</h3> <input v-model='note.info.url' type="text">
       </div>
-      <span @click='saveNote' class="material-icons">save</span>
+    <div v-else-if='emailType'>
+      <h3 class='center'>to</h3> <input v-model='note.to' type="text">
+      <h3 class='center'>subject</h3> <input v-model='note.subject' type="text">
+      <h3 class='center'>body</h3> <input v-model='note.body' type="text">
+      </div>
+    <span @click='saveNote' class="material-icons">save</span>
 
   </section>
     `,
@@ -45,7 +50,6 @@ export default {
   computed: {
     txtType() {
       if (this.getType() === 'note-txt') {
-        // this.isPinned = this.note.isPinned;
         return true;
       }
     },
@@ -61,6 +65,11 @@ export default {
     },
     videoType() {
       if (this.getType() === 'note-video') {
+        return true;
+      }
+    },
+    emailType() {
+      if (this.getType() === 'note-email') {
         return true;
       }
     },

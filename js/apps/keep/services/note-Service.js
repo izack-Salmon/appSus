@@ -8,7 +8,7 @@ export const noteService = {
   remove,
   getById,
 };
-
+var executed = true;
 const NOTE_KEY = 'notes';
 const notes = [
   {
@@ -19,11 +19,33 @@ const notes = [
       txt: 'Fullstack Me Baby!',
     },
     style: {
-      backgroundColor: '#00d',
+      backgroundColor: '#e0b3b3',
     },
   },
   {
-    id: 'n102h',
+    id: 'n101qkjkj',
+    type: 'note-txt',
+    isPinned: true,
+    info: {
+      txt: '“Mr. and Mrs. Dursley of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.” ',
+    },
+    style: {
+      backgroundColor: '#bb00e0',
+    },
+  },
+  {
+    id: 'n101qkjkj8u',
+    type: 'note-txt',
+    isPinned: true,
+    info: {
+      txt: 'Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfo',
+    },
+    style: {
+      backgroundColor: '#00e604',
+    },
+  },
+  {
+    id: 'n102h87878',
     type: 'note-img',
     info: {
       url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
@@ -32,38 +54,91 @@ const notes = [
     style: {
       backgroundColor: '#00d',
     },
+    isPinned: false,
+  },
+  {
+    id: 'n102h',
+    type: 'note-img',
+    info: {
+      url: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_1280.jpg',
+      title: 'nice!!!',
+    },
+    style: {
+      backgroundColor: '#00d',
+    },
     isPinned: true,
   },
   {
-    id: 'n103j',
+    id: 'n103j887876',
     type: 'note-todos',
     info: {
       label: 'Get my stuff together',
       todos: [
         { txt: 'Driving liscence', doneAt: null },
         { txt: 'Coding power', doneAt: 187111111 },
+        { txt: 'ninja at vue', doneAt: 187111111 },
+        { txt: 'make sprint 3 to work', doneAt: 187111111 },
+        { txt: 'die will trying', doneAt: 187111111 },
       ],
     },
     style: {
-      backgroundColor: '#00d',
+      backgroundColor: '#ffd500',
     },
-    isPinned: true,
+    isPinned: false,
   },
   {
-    id: 'n103j',
+    id: 'n103jkjkj',
     type: 'note-video',
     info: {
       label: 'Get my stuff together',
       url: 'https://www.youtube.com/embed/tgbNymZ7vqY',
     },
     style: {
-      backgroundColor: '#00d',
+      backgroundColor: '#b12b2b',
+    },
+    isPinned: false,
+  },
+  {
+    id: 'n103gfgf8j',
+    type: 'note-email',
+    subject: 'your api hard to learn',
+    to: 'Google@gmail.com',
+    body: 'plz google pix your api keys to work hard better and faster.',
+    style: {
+      backgroundColor: '#ffffff',
+    },
+    isPinned: false,
+  },
+  {
+    id: 'n103gfgfj',
+    type: 'note-video',
+    info: {
+      label: 'Get my stuff together',
+      url: 'https://www.youtube.com/watch?v=s2uFtDTk6N0',
+    },
+    style: {
+      backgroundColor: '#00b3ff',
+    },
+    isPinned: true,
+  },
+  {
+    id: 'n103gfgfj',
+    type: 'note-video',
+    info: {
+      label: 'Get my stuff together',
+      url: 'https://www.youtube.com/watch?v=iik25wqIuFo',
+    },
+    style: {
+      backgroundColor: '#00b3ff',
     },
     isPinned: false,
   },
 ];
 function query() {
-  // utilService.saveToStorage(NOTE_KEY, notes);
+  if (executed) {
+    utilService.saveToStorage(NOTE_KEY, notes);
+    executed = false;
+  }
   return storageService.query(NOTE_KEY);
 }
 

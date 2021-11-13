@@ -9,7 +9,7 @@ export default {
               <span class="material-icons">palette</span>
               <input value='#111111' @change="pickColor($event)" class='input-palette' type="color" >
             </span>
-            <span class="material-icons">email</span>
+            <span @click="sendEmail(note)" class="material-icons">email</span>
             <span @click="editNote(note.id)" class="material-icons">edit</span>
            <span @click="deleteNote(note.id)" class="material-icons">delete</span>
            <span @click="duplicNote(note.id)" class="material-icons">content_copy</span>
@@ -36,6 +36,10 @@ export default {
     },
     duplicNote(noteId) {
       eventBus.$emit('duplicat', noteId);
+    },
+    sendEmail(noteId) {
+      eventBus.$emit('noteToEmail', note);
+      this.$router.push(`/email`);
     },
   },
 };

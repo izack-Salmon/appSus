@@ -1,4 +1,3 @@
-import noteCrudButtons from './note-crudButtons.cmp.js';
 export default {
   props: ['note'],
   template: `
@@ -8,7 +7,4 @@ export default {
           </div>
         </section>
       `,
-  components: {
-    noteCrudButtons,
-  },
 };

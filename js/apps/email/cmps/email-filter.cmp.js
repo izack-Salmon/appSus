@@ -3,7 +3,7 @@ export default {
             <section>
                 <div class="email-top-ruler">
                     <input class='search-emails' @input="filter" v-model="txt" type="text" placeholder="search mail">
-                    <select @change="selectRead($event)"  name="emailToshow">
+                    <select @change="selectRead($event)" name="emailToshow">
                         <option value="ShowAll">Show All</option>
                         <option value="Read">Read</option>
                         <option value="unRead">un Read</option>

@@ -2,6 +2,7 @@ import noteTxt from './note-txt.cmp.js';
 import noteImg from './note-img.cmp.js';
 import noteTodos from './note-todos.cmp.js';
 import noteVideo from './note-video.cmp.js';
+import noteEmail from './note-email.cmp.js';
 import noteCrudButtons from './note-crudButtons.cmp.js';
 export default {
   props: ['note'],
@@ -23,7 +24,11 @@ export default {
             <note-video :note='note'/>
             <note-crud-buttons :note='note'/>
             </div>
-       </div>
+            <div class='video-contaier' v-else-if='emailType'>
+            <note-email :note='note'/>
+            <note-crud-buttons :note='note'/>
+            </div>
+          </div>
     `,
   created() {},
   methods: {
@@ -52,6 +57,11 @@ export default {
         return true;
       }
     },
+    emailType() {
+      if (this.getType() === 'note-email') {
+        return true;
+      }
+    },
   },
   components: {
     noteTxt,
@@ -59,5 +69,6 @@ export default {
     noteTodos,
     noteVideo,
     noteCrudButtons,
+    noteEmail,
   },
 };
