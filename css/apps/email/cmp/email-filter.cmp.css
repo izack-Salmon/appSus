@@ -1,15 +1,15 @@
 .email-top-ruler {
-  height: 80px;
-  background-color: rgb(212, 238, 255);
+    height: 50px;
+    background-color: rgb(212, 238, 255);
 }
 
 .email-top-ruler .search-emails {
-  margin-left: 100px;
-  margin-top: 5px;
-  font-size: 16px;
-  height: 35px;
-  width: 300px;
-  outline: none;
-  border: 1px solid rgba(212, 212, 212);
-  border-radius: 5px;
+    margin-left: 100px;
+    margin-top: 5px;
+    font-size: 16px;
+    height: 35px;
+    width: 300px;
+    outline: none;
+    border: 1px solid rgba(212, 212, 212);
+    border-radius: 5px;
 }

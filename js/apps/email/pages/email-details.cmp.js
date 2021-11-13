@@ -1,6 +1,7 @@
 import { emailService } from '../services/email-services.js';
 import emailSideRuler from '../cmps/email-side-ruler.cmp.js';
 import { eventBus } from '../../../services/event-bus-service.js';
+import { router } from '../../../services/routes.js';
 
 export default {
 
@@ -13,6 +14,7 @@ export default {
                 <span @click="goToApp()" class="material-icons detail-icon on-icon">arrow_back</span>
                 <span @click="deleteMail(email.id)" class="material-icons  detail-icon on-icon">delete</span>
                 <span @click="notRead(email.id)" class="material-icons detail-icon on-icon">markunread</span>
+                <span @click="emailToNote(email)" class="material-icons detail-icon on-icon">edit_note</span>
             </div>
             <div class="email-container">
                 <div class="mail-header">{{email.subject}}</div>
@@ -30,6 +32,10 @@ export default {
     },
     created() {},
     methods: {
+        emailToNote(email) {
+            eventBus.$emit('emailToNote', email)
+            this.$router.push('/keep')
+        },
         notRead(id) {
             eventBus.$emit('set not read', id)
             const msg = { type: 'success', txt: 'Mark as Unread' };
