@@ -39,6 +39,8 @@ export default {
     },
     sendEmail(note) {
       this.$router.push(`/email`);
+      const msg = { type: 'success', txt: 'Converting note..' };
+      eventBus.$emit('showMsg', msg);
       setTimeout(() => {
         eventBus.$emit('noteToEmail', note);
       }, 500);

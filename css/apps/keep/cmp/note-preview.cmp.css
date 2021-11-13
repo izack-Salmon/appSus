@@ -10,8 +10,9 @@
   justify-content: center;
   align-content: center;
   border-radius: 30px;
-  margin: 40px;
+  margin: 8px;
   min-height: 280px;
+  /* margin-bottom: 30px; */
 }
 .note-container {
   margin-bottom: 30px;
@@ -21,7 +22,7 @@
   grid-template: repeat(12, 1fr);
   grid-gap: 10px;
   /* grid-template-rows: repeat(4, 1fr); */
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   /* display: flex;
   flex-wrap: wrap;
   justify-content: space-around; */

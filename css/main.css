@@ -28,83 +28,79 @@
 /* fonts */
 
 @font-face {
-    font-family: ubo-regular;
-    src: url(../fonts/email/Ubuntu-Regular.ttf);
+  font-family: ubo-regular;
+  src: url(../fonts/email/Ubuntu-Regular.ttf);
 }
 
 @font-face {
-    font-family: handwriting;
-    src: url(../fonts/email/Pacifico-Regular.ttf);
+  font-family: handwriting;
+  src: url(../fonts/email/Pacifico-Regular.ttf);
 }
-
 
 /* main */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
-
 
 /* header */
 
 .app-header {
-    padding: 10px;
-    height: 10vh;
-    background-color: rgb(212, 238, 255);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 10px;
+  height: 10vh;
+  background-color: rgb(212, 238, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
 
 /* footer */
 
 .app-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    height: 10vh;
-    background-color: rgb(212, 238, 255);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  height: 10vh;
+  background-color: rgb(212, 238, 255);
 }
 
 .app-main {
-    height: 89vh;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(212, 238, 255);
+  height: 89vh;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(212, 238, 255);
 }
-
 
 /* Helpers */
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-column-center {
-    overflow: scroll;
-    /* height: 95%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    /* margin: bottom 10px; */
+  overflow: scroll;
+  /* height: 95%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 65px;
+  /* margin: bottom 10px; */
 }

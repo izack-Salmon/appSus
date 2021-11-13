@@ -12,17 +12,6 @@ var executed = true;
 const NOTE_KEY = 'notes';
 const notes = [
   {
-    id: 'n101q',
-    type: 'note-txt',
-    isPinned: true,
-    info: {
-      txt: 'Fullstack Me Baby!',
-    },
-    style: {
-      backgroundColor: '#e0b3b3',
-    },
-  },
-  {
     id: 'n101qkjkj',
     type: 'note-txt',
     isPinned: true,
@@ -57,7 +46,7 @@ const notes = [
     isPinned: false,
   },
   {
-    id: 'n102h',
+    id: 'n102ggfgfh',
     type: 'note-img',
     info: {
       url: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072821_1280.jpg',
@@ -69,7 +58,7 @@ const notes = [
     isPinned: true,
   },
   {
-    id: 'n103j887876',
+    id: 'n103j887gfgf876',
     type: 'note-todos',
     info: {
       label: 'Get my stuff together',
@@ -87,7 +76,7 @@ const notes = [
     isPinned: false,
   },
   {
-    id: 'n103jkjkj',
+    id: 'n103jkjgfgfkj',
     type: 'note-video',
     info: {
       label: 'Get my stuff together',
@@ -99,7 +88,7 @@ const notes = [
     isPinned: false,
   },
   {
-    id: 'n103gfgf8j',
+    id: 'n103gfgfgfgfggf8j',
     type: 'note-email',
     subject: 'your api hard to learn',
     to: 'Google@gmail.com',
@@ -110,19 +99,7 @@ const notes = [
     isPinned: false,
   },
   {
-    id: 'n103gfgfj',
-    type: 'note-video',
-    info: {
-      label: 'Get my stuff together',
-      url: 'https://www.youtube.com/watch?v=s2uFtDTk6N0',
-    },
-    style: {
-      backgroundColor: '#00b3ff',
-    },
-    isPinned: true,
-  },
-  {
-    id: 'n103gfgfj',
+    id: 'n103ggfgftttfgfj',
     type: 'note-video',
     info: {
       label: 'Get my stuff together',
@@ -131,7 +108,7 @@ const notes = [
     style: {
       backgroundColor: '#00b3ff',
     },
-    isPinned: false,
+    isPinned: true,
   },
 ];
 function query() {

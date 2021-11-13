@@ -1,4 +1,5 @@
 import { noteService } from '../services/note-Service.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 export default {
   template: `
   <section v-if='note' class='app-main flex-column-center'>
@@ -44,6 +45,8 @@ export default {
     },
     saveNote() {
       noteService.save(this.note);
+      const msg = { type: 'success', txt: 'Save note..' };
+      eventBus.$emit('showMsg', msg);
       this.$router.push(`/keep`);
     },
   },
