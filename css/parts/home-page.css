@@ -13,6 +13,7 @@
 }
 
 .home-title p {
+    cursor: default;
     color: rgb(41, 41, 41);
     margin: 0;
     font-size: 100px;

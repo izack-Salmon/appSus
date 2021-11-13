@@ -46,8 +46,32 @@ export default {
                 sentAt: 0,
                 status: 'sent',
             },
-        }
 
+        }
+    },
+    created() {
+        eventBus.$on('noteToEmail', (note) => {
+            if (note.type === 'note-txt') {
+                this.body = note.info.txt
+            } else if (note.type === 'note-img') {
+                this.subject = note.info.title
+                this.body = note.info.url
+            } else if (note.type === 'note-todos') {
+                this.subject = note.info.label
+                note.info.todos.forEach(element => {
+                    this.body += ` 
+                    • ${element.txt}`
+                });
+            } else if (note.type === 'note-video') {
+                this.subject = note.info.label
+                this.body = note.info.url
+            } else {
+                this.subject = note.subject
+                this.to = note.to
+                this.body = note.body
+            }
+            this.isHidden = false
+        })
     },
     methods: {
         sendEmail() {
@@ -70,6 +94,4 @@ export default {
             console.log('good')
         }
     },
-
-
 };
